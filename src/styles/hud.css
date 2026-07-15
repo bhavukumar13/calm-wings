@@ -1,0 +1,411 @@
+/* === HUD Overlay Container === */
+.hud-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* === Flow Animations === */
+.hud-enter {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity var(--hud-enter-duration) var(--hud-easing),
+              transform var(--hud-enter-duration) var(--hud-easing);
+}
+
+.hud-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity var(--hud-enter-duration) var(--hud-easing),
+              transform var(--hud-enter-duration) var(--hud-easing);
+}
+
+.hud-exit {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity var(--hud-exit-duration) ease-in,
+              transform var(--hud-exit-duration) ease-in;
+}
+
+.hud-exit .hud-overlay__left,
+.hud-exit .step-label,
+.hud-exit .progress-bar,
+.hud-exit .hud-overlay__hotspots {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity var(--hud-exit-duration) ease-in,
+              transform var(--hud-exit-duration) ease-in;
+}
+
+/* === Step Label === */
+.step-label {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  background: var(--color-bg-card);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  color: var(--color-text-primary);
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  border: 1px solid rgba(245, 166, 35, 0.3);
+}
+
+/* === Progress Bar === */
+.progress-bar {
+  position: absolute;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  padding: 8px 16px;
+  background: var(--color-bg-card);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.progress-bar__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: background 300ms ease, transform 300ms ease;
+}
+
+.progress-bar__dot.active {
+  background: var(--color-accent-gold);
+  transform: scale(1.4);
+  box-shadow: 0 0 8px var(--color-accent-gold);
+}
+
+.progress-bar__dot.done {
+  background: var(--color-success);
+}
+
+/* === Info Card === */
+.hud-overlay__left {
+  position: absolute;
+  left: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 360px;
+}
+
+.info-card {
+  display: flex;
+  gap: 12px;
+  background: var(--color-bg-card-light);
+  border-radius: var(--radius-card);
+  padding: 20px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+}
+
+.info-card__icon {
+  font-size: 20px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-accent-blue);
+  color: white;
+  border-radius: 50%;
+  flex-shrink: 0;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.info-card__title {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  margin-bottom: 8px;
+}
+
+.info-card__body {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--color-text-dark);
+  opacity: 0.85;
+}
+
+/* === Tip Panel === */
+.tip-panel {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: var(--color-bg-card);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border-radius: var(--radius-card);
+  padding: 16px 20px;
+  border: 1px solid rgba(245, 166, 35, 0.2);
+}
+
+.tip-panel__icon {
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.tip-panel__text {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--color-text-secondary);
+}
+
+/* === Hotspots === */
+.hud-overlay__hotspots {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.hotspot {
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+.hotspot__dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--color-accent-gold);
+  box-shadow: 0 0 12px var(--color-accent-gold);
+}
+
+.hotspot__pulse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid var(--color-accent-gold);
+  animation: pulse 2s ease-out infinite;
+}
+
+@keyframes pulse {
+  0% {
+    width: 16px;
+    height: 16px;
+    opacity: 1;
+  }
+  100% {
+    width: 48px;
+    height: 48px;
+    opacity: 0;
+  }
+}
+
+.hotspot__label {
+  position: absolute;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-accent-gold);
+  background: var(--color-bg-card);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(245, 166, 35, 0.3);
+}
+
+/* === Journey Complete === */
+.journey-complete {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.journey-complete__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-bg-primary);
+  animation: fadeIn 800ms ease-out;
+}
+
+.journey-complete__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: 40px;
+  max-width: 1200px;
+  width: 100%;
+  padding: 40px;
+  animation: slideUp 800ms ease-out 200ms both;
+}
+
+.journey-complete__image {
+  flex: 0 0 40%;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+.journey-complete__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.journey-complete__card {
+  flex: 1;
+  background: var(--color-bg-card-light);
+  border-radius: var(--radius-card);
+  padding: 32px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.journey-complete__badge {
+  display: inline-block;
+  background: var(--color-success);
+  color: white;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-bottom: 16px;
+}
+
+.journey-complete__title {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  margin-bottom: 24px;
+}
+
+.journey-complete__steps {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.journey-complete__step {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.journey-complete__step-num {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--color-accent-gold);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.journey-complete__step-label {
+  font-size: 14px;
+  color: var(--color-text-dark);
+}
+
+.journey-complete__learnings {
+  margin-bottom: 20px;
+}
+
+.journey-complete__learnings h3 {
+  font-family: var(--font-display);
+  font-size: 16px;
+  color: var(--color-text-dark);
+  margin-bottom: 8px;
+}
+
+.journey-complete__learnings ul {
+  list-style: none;
+  padding: 0;
+}
+
+.journey-complete__learnings li {
+  font-size: 13px;
+  color: var(--color-text-dark);
+  opacity: 0.8;
+  padding: 4px 0;
+  padding-left: 20px;
+  position: relative;
+}
+
+.journey-complete__learnings li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--color-success);
+  font-weight: 700;
+}
+
+.journey-complete__tip {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: rgba(245, 166, 35, 0.1);
+  border: 1px solid rgba(245, 166, 35, 0.3);
+  border-radius: var(--radius-card);
+  padding: 16px;
+}
+
+.journey-complete__tip-icon {
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.journey-complete__tip span:last-child {
+  font-size: 13px;
+  color: var(--color-text-dark);
+  line-height: 1.5;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
