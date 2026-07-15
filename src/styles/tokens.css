@@ -1,0 +1,37 @@
+:root {
+  /* Colors */
+  --color-bg-primary: #0A1628;
+  --color-bg-card: rgba(10, 22, 40, 0.85);
+  --color-bg-card-light: rgba(255, 255, 255, 0.95);
+  --color-accent-gold: #F5A623;
+  --color-accent-blue: #3B82F6;
+  --color-text-primary: #FFFFFF;
+  --color-text-dark: #1A1A2E;
+  --color-text-secondary: rgba(255, 255, 255, 0.7);
+  --color-success: #22C55E;
+  --color-danger: #EF4444;
+  --color-boarding: #F59E0B;
+
+  /* Typography */
+  --font-primary: 'Inter', sans-serif;
+  --font-display: 'Outfit', sans-serif;
+
+  /* Spacing */
+  --radius-card: 16px;
+  --radius-button: 24px;
+  --radius-pill: 999px;
+  --glass-blur: 12px;
+
+  /* Scroll constants */
+  --total-frames: 64;
+  --frames-per-clip: 16;
+  --scroll-per-checkpoint: 1250px;
+  --video-scroll: 800px;
+  --breathing-scroll: 450px;
+  --total-scroll: 5000px;
+
+  /* HUD animation */
+  --hud-enter-duration: 600ms;
+  --hud-exit-duration: 400ms;
+  --hud-easing: ease-out;
+}
