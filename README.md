@@ -21,7 +21,9 @@ ffmpeg + Python (Pillow)
 React 19 + Canvas 2D API
   → Scroll position maps to frame index (0-63)
   → Canvas draws spritesheet subregion via drawImage()
-  → HUD overlays flow in/out at each checkpoint (CSS transitions)
+  → HUD reveal is scroll-linked (opacity/offset driven by scroll position,
+    not a timed transition), holds steady mid-checkpoint, reverse-fades out
+  → Hover a hotspot dot for a mini info card (title + description)
         ↓
 Deployed as static site on Vercel
 ```

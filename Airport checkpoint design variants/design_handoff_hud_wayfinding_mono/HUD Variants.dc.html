@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+body { margin:0; background:#080D16; font-family:'Inter',sans-serif; -webkit-font-smoothing:antialiased; }
+a { color:#E7C58F; } a:hover { color:#F5DBB2; }
+@keyframes hudIn { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+@keyframes hudInC { from { opacity:0; transform:translate(-50%,20px); } to { opacity:1; transform:translate(-50%,0); } }
+@keyframes hudInM { from { opacity:0; transform:translateY(calc(-50% + 20px)); } to { opacity:1; transform:translateY(-50%); } }
+@keyframes pulse { 0% { width:16px; height:16px; opacity:1; } 100% { width:48px; height:48px; opacity:0; } }
+</style>
+</helmet>
+<section style="padding:56px; display:flex; flex-direction:column; gap:28px;">
+  <div style="max-width:720px; display:flex; flex-direction:column; gap:8px;">
+    <div style="font-family:'Outfit',sans-serif; font-size:13px; font-weight:600; letter-spacing:0.18em; color:#FFC531;">TURN 3 · FINAL — 2A ACROSS ALL CHECKPOINTS</div>
+    <div style="font-family:'Outfit',sans-serif; font-size:26px; font-weight:600; color:#FFFFFF;">Wayfinding Mono, tightened — full journey</div>
+    <div style="font-size:14px; line-height:1.6; color:rgba(255,255,255,0.6);">Done steps fill quiet, the active step carries the only gold. Sector tags: ENT / CHK / SEC / GTE.</div>
+  </div>
+  <div style="display:flex; flex-wrap:wrap; gap:48px; align-items:flex-start;">
+
+    <!-- ============ 3a — ENTRANCE ============ -->
+    <div id="3a" style="display:flex; flex-direction:column; gap:12px;">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <div style="background:#FFC531; color:#141A26; font-family:'Space Mono',monospace; font-weight:700; font-size:12px; padding:3px 9px; border-radius:6px;">3a</div>
+        <div style="font-family:'Outfit',sans-serif; font-size:14px; font-weight:600; color:#FFFFFF;">Checkpoint 01 — Entrance</div>
+      </div>
+      <div style="position:relative; width:1280px; height:720px; border-radius:10px; overflow:hidden; background:#0A1628 url('assets/entrance-bg.jpeg') center/cover;">
+        <div style="position:absolute; top:28px; left:28px; background:rgba(8,14,24,0.65); backdrop-filter:blur(28px) saturate(130%); padding:9px 16px; border-radius:10px; border:1px solid rgba(255,255,255,0.12); display:flex; align-items:center; gap:10px; animation:hudIn 600ms ease-out both;">
+          <span style="font-family:'Space Mono',monospace; font-size:13px; letter-spacing:0.08em; color:#FFC531;">ENT // 01</span>
+          <span style="width:1px; height:14px; background:rgba(255,255,255,0.2);"></span>
+          <span style="font-family:'Space Grotesk',sans-serif; font-size:13px; color:rgba(255,255,255,0.85);">Entrance — Doors</span>
+        </div>
+        <div style="position:absolute; top:28px; left:50%; transform:translateX(-50%); display:flex; align-items:center; gap:8px; padding:8px 10px; background:rgba(8,14,24,0.65); backdrop-filter:blur(28px) saturate(130%); border-radius:12px; border:1px solid rgba(255,255,255,0.12); animation:hudInC 600ms ease-out 100ms both;">
+          <div style="display:flex; align-items:center; gap:8px; height:30px; border-radius:8px; background:#FFC531; padding:0 12px;"><span style="font-family:'Space Mono',monospace; font-size:11px; font-weight:700; color:#141A26;">01</span><span style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.08em; color:#141A26;">ENTRANCE</span></div>
+          <div style="width:30px; height:30px; border-radius:8px; border:1px solid rgba(255,255,255,0.18); display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-size:11px; color:rgba(255,255,255,0.4);">02</div>
+          <div style="width:30px; height:30px; border-radius:8px; border:1px solid rgba(255,255,255,0.18); display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-size:11px; color:rgba(255,255,255,0.4);">03</div>
+          <div style="width:30px; height:30px; border-radius:8px; border:1px solid rgba(255,255,255,0.18); display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-size:11px; color:rgba(255,255,255,0.4);">04</div>
+        </div>
+        <div style="position:absolute; left:28px; top:50%; transform:translateY(-50%); display:flex; flex-direction:column; gap:12px; max-width:390px; animation:hudInM 600ms ease-out 200ms both;">
+          <div style="background:rgba(8,14,24,0.65); backdrop-filter:blur(28px) saturate(130%); border-radius:12px; padding:22px 24px; border:1px solid rgba(255,255,255,0.12); box-shadow:0 12px 40px rgba(0,0,0,0.4);">
+            <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
+              <div style="width:32px; height:32px; border-radius:8px; background:#FFC531; color:#141A26; display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-weight:700; font-size:15px; flex-shrink:0;">i</div>
+              <h3 style="font-family:'Space Grotesk',sans-serif; font-size:20px; font-weight:600; color:#FFFFFF; margin:0;">Welcome to the Airport</h3>
+            </div>
+            <p style="font-family:'Space Grotesk',sans-serif; font-size:14px; line-height:1.6; color:rgba(255,255,255,0.75); margin:0; text-wrap:pretty;">You've arrived at the terminal entrance. Look for the Departures signage above the doors. Have your ID and boarding pass ready before you walk in.</p>
+          </div>
+          <div style="background:rgba(8,14,24,0.65); backdrop-filter:blur(28px) saturate(130%); border-radius:12px; padding:14px 18px; border:1px solid rgba(255,255,255,0.12); display:flex; gap:12px; align-items:flex-start;">
+            <span style="font-family:'Space Mono',monospace; font-size:10px; color:#FFC531; border:1px solid rgba(255,197,49,0.5); border-radius:6px; padding:3px 8px; flex-shrink:0; letter-spacing:0.1em;">TIP</span>
+            <span style="font-family:'Space Grotesk',sans-serif; font-size:13px; line-height:1.55; color:rgba(255,255,255,0.72);">Keep your documents in an easily accessible pocket — you'll need them at every checkpoint.</span>
+          </div>
+        </div>
+        <sc-if value="{{ showHotspots }}" hint-placeholder-val="{{ true }}">
+          <div style="position:absolute; left:50%; top:20%; transform:translate(-50%,-50%); animation:hudIn 600ms ease-out 300ms both;">
+            <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); border-radius:50%; border:1.5px solid #FFC531; animation:pulse 2.4s ease-out infinite;"></div>
+            <div style="width:13px; height:13px; border-radius:50%; background:#FFC531; box-shadow:0 0 12px rgba(255,197,49,0.8);"></div>
+            <span style="position:absolute; top:22px; left:50%; transform:translateX(-50%); white-space:nowrap; font-family:'Space Mono',monospace; font-size:10px; letter-spacing:0.1em; color:#FFC531; background:rgba(8,14,24,0.65); backdrop-filter:blur(28px); padding:5px 10px; border-radius:6px; border:1px solid rgba(255,197,49,0.35);">DEPARTURES SIGN</span>
+          </div>
+          <div style="position:absolute; left:50%; top:55%; transform:translate(-50%,-50%); animation:hudIn 600ms ease-out 380ms both;">
+            <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); border-radius:50%; border:1.5px solid #FFC531; animation:pulse 2.4s ease-out infinite;"></div>
+            <div style="width:13px; height:13px; border-radius:50%; background:#FFC531; box-shadow:0 0 12px rgba(255,197,49,0.8);"></div>
+            <span style="position:absolute; top:22px; left:50%; transform:translateX(-50%); white-space:nowrap; font-family:'Space Mono',monospace; font-size:10px; letter-spacing:0.1em; color:#FFC531; background:rgba(8,14,24,0.65); backdrop-filter:blur(28px); padding:5px 10px; border-radius:6px; border:1px solid rgba(255,197,49,0.35);">ENTRY DOORS</span>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+
+    <!-- ============ 3b — CHECK-IN ============ -->
+    <div id="3b" style="display:flex; flex-direction:column; gap:12px;">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <div style="background:#FFC531; color:#141A26; font-family:'Space Mono',monospace; font-weight:700; font-size:12px; padding:3px 9px; border-radius:6px;">3b</div>
+        <div style="font-family:'Outfit',sans-serif; font-size:14px; font-weight:600; color:#FFFFFF;">Checkpoint 02 — Check-in</div>
+      </div>
+      <div style="position:relative; width:1280px; height:720px; border-radius:10px; overflow:hidden; background:#0A1628 url('assets/checkin-bg.jpeg') center/cover;">
+        <div style="position:absolute; top:28px; left:28px; background:rgba(8,14,24,0.65); backdrop-filter:blur(28px) saturate(130%); padding:9px 16px; border-radius:10px; border:1px solid rgba(255,255,255,0.12); display:flex; align-items:center; gap:10px; animation:hudIn 600ms ease-out both;">
+          <span style="font-family:'Space Mono',monospace; font-size:13px; letter-spacing:0.08em; color:#FFC531;">CHK // 02</span>
+          <span style="width:1px; height:14px; background:rgba(255,255,255,0.2);"></span>
+          <span style="font-family:'Space Grotesk',sans-serif; font-size:13px; color:rgba(255,255,255,0.85);">Check-in Counter</span>
+        </div>
+        <div style="position:absolute; top:28px; left:50%; transform:translateX(-50%); display:flex; align-items:center; gap:8px; padding:8px 10px; background:rgba(8,14,24,0.65); backdrop-filter:blur(28px) saturate(130%); border-radius:12px; border:1px solid rgba(255,255,255,0.12); animation:hudInC 600ms ease-out 100ms both;">
+          <div style="width:30px; height:30px; border-radius:8px; background:rgba(255,255,255,0.14); display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-size:11px; color:rgba(255,255,255,0.75);">01</div>
+          <div style="display:flex; align-items:center; gap:8px; height:30px; border-radius:8px; background:#FFC531; padding:0 12px;"><span style="font-family:'Space Mono',monospace; font-size:11px; font-weight:700; color:#141A26;">02</span><span style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.08em; color:#141A26;">CHECK-IN</span></div>
+          <div style="width:30px; height:30px; border-radius:8px; border:1px solid rgba(255,255,255,0.18); display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-size:11px; color:rgba(255,255,255,0.4);">03</div>
+          <div style="width:30px; height:30px; border-radius:8px; border:1px solid rgba(255,255,255,0.18); display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-size:11px; color:rgba(255,255,255,0.4);">04</div>
+        </div>
+        <div style="position:absolute; left:28px; top:50%; transform:translateY(-50%); display:flex; flex-direction:column; gap:12px; max-width:390px; animation:hudInM 600ms ease-out 200ms both;">
+          <div style="background:rgba(8,14,24,0.65); backdrop-filter:blur(28px) saturate(130%); border-radius:12px; padding:22px 24px; border:1px solid rgba(255,255,255,0.12); box-shadow:0 12px 40px rgba(0,0,0,0.4);">
+            <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
+              <div style="width:32px; height:32px; border-radius:8px; background:#FFC531; color:#141A26; display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-weight:700; font-size:15px; flex-shrink:0;">i</div>
+              <h3 style="font-family:'Space Grotesk',sans-serif; font-size:20px; font-weight:600; color:#FFFFFF; margin:0;">Check-in Counter</h3>
+            </div>
+            <p style="font-family:'Space Grotesk',sans-serif; font-size:14px; line-height:1.6; color:rgba(255,255,255,0.75); margin:0; text-wrap:pretty;">Present your ID and booking reference at the airline counter. The agent will verify your documents, check your luggage, and issue your boarding pass.</p>
+          </div>
+          <div style="background:rgba(8,14,24,0.65); backdrop-filter:blur(28px) saturate(130%); border-radius:12px; padding:14px 18px; border:1px solid rgba(255,255,255,0.12); display:flex; gap:12px; align-items:flex-start;">
+            <span style="font-family:'Space Mono',monospace; font-size:10px; color:#FFC531; border:1px solid rgba(255,197,49,0.5); border-radius:6px; padding:3px 8px; flex-shrink:0; letter-spacing:0.1em;">TIP</span>
+            <span style="font-family:'Space Grotesk',sans-serif; font-size:13px; line-height:1.55; color:rgba(255,255,255,0.72);">Weigh your luggage at home. Excess baggage fees are expensive and can slow you down.</span>
+          </div>
+        </div>
+        <sc-if value="{{ showHotspots }}" hint-placeholder-val="{{ true }}">
+          <div style="position:absolute; left:50%; top:45%; transform:translate(-50%,-50%); animation:hudIn 600ms ease-out 300ms both;">
+            <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); border-radius:50%; border:1.5px solid #FFC531; animation:pulse 2.4s ease-out infinite;"></div>
+            <div style="width:13px; height:13px; border-radius:50%; background:#FFC531; box-shadow:0 0 12px rgba(255,197,49,0.8);"></div>
+            <span style="position:absolute; top:22px; left:50%; transform:translateX(-50%); white-space:nowrap; font-family:'Space Mono',monospace; font-size:10px; letter-spacing:0.1em; color:#FFC531; background:rgba(8,14,24,0.65); backdrop-filter:blur(28px); padding:5px 10px; border-radius:6px; border:1px solid rgba(255,197,49,0.35);">CHECK-IN COUNTER</span>
+          </div>
+          <div style="position:absolute; left:50%; top:15%; transform:translate(-50%,-50%); animation:hudIn 600ms ease-out 380ms both;">
+            <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); border-radius:50%; border:1.5px solid #FFC531; animation:pulse 2.4s ease-out infinite;"></div>
+            <div style="width:13px; height:13px; border-radius:50%; background:#FFC531; box-shadow:0 0 12px rgba(255,197,49,0.8);"></div>
+            <span style="position:absolute; top:22px; left:50%; transform:translateX(-50%); white-space:nowrap; font-family:'Space Mono',monospace; font-size:10px; letter-spacing:0.1em; color:#FFC531; background:rgba(8,14,24,0.65); backdrop-filter:blur(28px); padding:5px 10px; border-radius:6px; border:1px solid rgba(255,197,49,0.35);">FIDS BOARD</span>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+
+    <!-- ============ 3c — SECURITY ============ -->
+    <div id="3c" style="display:flex; flex-direction:column; gap:12px;">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <div style="background:#FFC531; color:#141A26; font-family:'Space Mono',monospace; font-weight:700; font-size:12px; padding:3px 9px; border-radius:6px;">3c</div>
+        <div style="font-family:'Outfit',sans-serif; font-size:14px; font-weight:600; color:#FFFFFF;">Checkpoint 03 — Security</div>
+      </div>
+      <div style="position:relative; width:1280px; height:720px; border-radius:10px; overflow:hidden; background:#0A1628 url('assets/security-bg.jpeg') center/cover;">
+        <div style="position:absolute; top:28px; left:28px; background:rgba(8,14,24,0.65); backdrop-filter:blur(28px) saturate(130%); padding:9px 16px; border-radius:10px; border:1px solid rgba(255,255,255,0.12); display:flex; align-items:center; gap:10px; animation:hudIn 600ms ease-out both;">
+          <span style="font-family:'Space Mono',monospace; font-size:13px; letter-spacing:0.08em; color:#FFC531;">SEC // 03</span>
+          <span style="width:1px; height:14px; background:rgba(255,255,255,0.2);"></span>
+          <span style="font-family:'Space Grotesk',sans-serif; font-size:13px; color:rgba(255,255,255,0.85);">Security Check</span>
+        </div>
+        <div style="position:absolute; top:28px; left:50%; transform:translateX(-50%); display:flex; align-items:center; gap:8px; padding:8px 10px; background:rgba(8,14,24,0.65); backdrop-filter:blur(28px) saturate(130%); border-radius:12px; border:1px solid rgba(255,255,255,0.12); animation:hudInC 600ms ease-out 100ms both;">
+          <div style="width:30px; height:30px; border-radius:8px; background:rgba(255,255,255,0.14); display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-size:11px; color:rgba(255,255,255,0.75);">01</div>
+          <div style="width:30px; height:30px; border-radius:8px; background:rgba(255,255,255,0.14); display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-size:11px; color:rgba(255,255,255,0.75);">02</div>
+          <div style="display:flex; align-items:center; gap:8px; height:30px; border-radius:8px; background:#FFC531; padding:0 12px;"><span style="font-family:'Space Mono',monospace; font-size:11px; font-weight:700; color:#141A26;">03</span><span style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.08em; color:#141A26;">SECURITY</span></div>
+          <div style="width:30px; height:30px; border-radius:8px; border:1px solid rgba(255,255,255,0.18); display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-size:11px; color:rgba(255,255,255,0.4);">04</div>
+        </div>
+        <div style="position:absolute; left:28px; top:50%; transform:translateY(-50%); display:flex; flex-direction:column; gap:12px; max-width:390px; animation:hudInM 600ms ease-out 200ms both;">
+          <div style="background:rgba(8,14,24,0.65); backdrop-filter:blur(28px) saturate(130%); border-radius:12px; padding:22px 24px; border:1px solid rgba(255,255,255,0.12); box-shadow:0 12px 40px rgba(0,0,0,0.4);">
+            <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
+              <div style="width:32px; height:32px; border-radius:8px; background:#FFC531; color:#141A26; display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-weight:700; font-size:15px; flex-shrink:0;">i</div>
+              <h3 style="font-family:'Space Grotesk',sans-serif; font-size:20px; font-weight:600; color:#FFFFFF; margin:0;">Security Screening</h3>
+            </div>
+            <p style="font-family:'Space Grotesk',sans-serif; font-size:14px; line-height:1.6; color:rgba(255,255,255,0.75); margin:0; text-wrap:pretty;">Place your electronics and liquids in a tray. Remove your belt and jacket if asked. Walk through the metal detector, then collect your belongings from the X-ray belt on the other side.</p>
+          </div>
+          <div style="background:rgba(8,14,24,0.65); backdrop-filter:blur(28px) saturate(130%); border-radius:12px; padding:14px 18px; border:1px solid rgba(255,255,255,0.12); display:flex; gap:12px; align-items:flex-start;">
+            <span style="font-family:'Space Mono',monospace; font-size:10px; color:#FFC531; border:1px solid rgba(255,197,49,0.5); border-radius:6px; padding:3px 8px; flex-shrink:0; letter-spacing:0.1em;">TIP</span>
+            <span style="font-family:'Space Grotesk',sans-serif; font-size:13px; line-height:1.55; color:rgba(255,255,255,0.72);">Wear easy-to-remove shoes. Keep liquids in a clear zip-lock bag — 100ml max per item.</span>
+          </div>
+        </div>
+        <sc-if value="{{ showHotspots }}" hint-placeholder-val="{{ true }}">
+          <div style="position:absolute; left:35%; top:50%; transform:translate(-50%,-50%); animation:hudIn 600ms ease-out 300ms both;">
+            <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); border-radius:50%; border:1.5px solid #FFC531; animation:pulse 2.4s ease-out infinite;"></div>
+            <div style="width:13px; height:13px; border-radius:50%; background:#FFC531; box-shadow:0 0 12px rgba(255,197,49,0.8);"></div>
+            <span style="position:absolute; top:22px; left:50%; transform:translateX(-50%); white-space:nowrap; font-family:'Space Mono',monospace; font-size:10px; letter-spacing:0.1em; color:#FFC531; background:rgba(8,14,24,0.65); backdrop-filter:blur(28px); padding:5px 10px; border-radius:6px; border:1px solid rgba(255,197,49,0.35);">X-RAY BELT</span>
+          </div>
+          <div style="position:absolute; left:60%; top:40%; transform:translate(-50%,-50%); animation:hudIn 600ms ease-out 380ms both;">
+            <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); border-radius:50%; border:1.5px solid #FFC531; animation:pulse 2.4s ease-out infinite;"></div>
+            <div style="width:13px; height:13px; border-radius:50%; background:#FFC531; box-shadow:0 0 12px rgba(255,197,49,0.8);"></div>
+            <span style="position:absolute; top:22px; left:50%; transform:translateX(-50%); white-space:nowrap; font-family:'Space Mono',monospace; font-size:10px; letter-spacing:0.1em; color:#FFC531; background:rgba(8,14,24,0.65); backdrop-filter:blur(28px); padding:5px 10px; border-radius:6px; border:1px solid rgba(255,197,49,0.35);">METAL DETECTOR</span>
+          </div>
+          <div style="position:absolute; left:25%; top:65%; transform:translate(-50%,-50%); animation:hudIn 600ms ease-out 460ms both;">
+            <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); border-radius:50%; border:1.5px solid #FFC531; animation:pulse 2.4s ease-out infinite;"></div>
+            <div style="width:13px; height:13px; border-radius:50%; background:#FFC531; box-shadow:0 0 12px rgba(255,197,49,0.8);"></div>
+            <span style="position:absolute; top:22px; left:50%; transform:translateX(-50%); white-space:nowrap; font-family:'Space Mono',monospace; font-size:10px; letter-spacing:0.1em; color:#FFC531; background:rgba(8,14,24,0.65); backdrop-filter:blur(28px); padding:5px 10px; border-radius:6px; border:1px solid rgba(255,197,49,0.35);">TRAY AREA</span>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+
+    <!-- ============ 3d — BOARDING ============ -->
+    <div id="3d" style="display:flex; flex-direction:column; gap:12px;">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <div style="background:#FFC531; color:#141A26; font-family:'Space Mono',monospace; font-weight:700; font-size:12px; padding:3px 9px; border-radius:6px;">3d</div>
+        <div style="font-family:'Outfit',sans-serif; font-size:14px; font-weight:600; color:#FFFFFF;">Checkpoint 04 — Boarding</div>
+      </div>
+      <div style="position:relative; width:1280px; height:720px; border-radius:10px; overflow:hidden; background:#0A1628 url('assets/boarding-bg.jpeg') center/cover;">
+        <div style="position:absolute; top:28px; left:28px; background:rgba(8,14,24,0.65); backdrop-filter:blur(28px) saturate(130%); padding:9px 16px; border-radius:10px; border:1px solid rgba(255,255,255,0.12); display:flex; align-items:center; gap:10px; animation:hudIn 600ms ease-out both;">
+          <span style="font-family:'Space Mono',monospace; font-size:13px; letter-spacing:0.08em; color:#FFC531;">GTE // 04</span>
+          <span style="width:1px; height:14px; background:rgba(255,255,255,0.2);"></span>
+          <span style="font-family:'Space Grotesk',sans-serif; font-size:13px; color:rgba(255,255,255,0.85);">Boarding Gate</span>
+        </div>
+        <div style="position:absolute; top:28px; left:50%; transform:translateX(-50%); display:flex; align-items:center; gap:8px; padding:8px 10px; background:rgba(8,14,24,0.65); backdrop-filter:blur(28px) saturate(130%); border-radius:12px; border:1px solid rgba(255,255,255,0.12); animation:hudInC 600ms ease-out 100ms both;">
+          <div style="width:30px; height:30px; border-radius:8px; background:rgba(255,255,255,0.14); display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-size:11px; color:rgba(255,255,255,0.75);">01</div>
+          <div style="width:30px; height:30px; border-radius:8px; background:rgba(255,255,255,0.14); display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-size:11px; color:rgba(255,255,255,0.75);">02</div>
+          <div style="width:30px; height:30px; border-radius:8px; background:rgba(255,255,255,0.14); display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-size:11px; color:rgba(255,255,255,0.75);">03</div>
+          <div style="display:flex; align-items:center; gap:8px; height:30px; border-radius:8px; background:#FFC531; padding:0 12px;"><span style="font-family:'Space Mono',monospace; font-size:11px; font-weight:700; color:#141A26;">04</span><span style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.08em; color:#141A26;">BOARDING</span></div>
+        </div>
+        <div style="position:absolute; left:28px; top:50%; transform:translateY(-50%); display:flex; flex-direction:column; gap:12px; max-width:390px; animation:hudInM 600ms ease-out 200ms both;">
+          <div style="background:rgba(8,14,24,0.65); backdrop-filter:blur(28px) saturate(130%); border-radius:12px; padding:22px 24px; border:1px solid rgba(255,255,255,0.12); box-shadow:0 12px 40px rgba(0,0,0,0.4);">
+            <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
+              <div style="width:32px; height:32px; border-radius:8px; background:#FFC531; color:#141A26; display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-weight:700; font-size:15px; flex-shrink:0;">i</div>
+              <h3 style="font-family:'Space Grotesk',sans-serif; font-size:20px; font-weight:600; color:#FFFFFF; margin:0;">Boarding Gate</h3>
+            </div>
+            <p style="font-family:'Space Grotesk',sans-serif; font-size:14px; line-height:1.6; color:rgba(255,255,255,0.75); margin:0; text-wrap:pretty;">Check the FIDS screen for your gate number and flight status. When boarding is announced, join the queue for your group. Present your boarding pass at the gate, then walk through the jet bridge to the aircraft door.</p>
+          </div>
+          <div style="background:rgba(8,14,24,0.65); backdrop-filter:blur(28px) saturate(130%); border-radius:12px; padding:14px 18px; border:1px solid rgba(255,255,255,0.12); display:flex; gap:12px; align-items:flex-start;">
+            <span style="font-family:'Space Mono',monospace; font-size:10px; color:#FFC531; border:1px solid rgba(255,197,49,0.5); border-radius:6px; padding:3px 8px; flex-shrink:0; letter-spacing:0.1em;">TIP</span>
+            <span style="font-family:'Space Grotesk',sans-serif; font-size:13px; line-height:1.55; color:rgba(255,255,255,0.72);">Check the FIDS screen regularly — gates can change at the last minute. Listen for announcements.</span>
+          </div>
+        </div>
+        <sc-if value="{{ showHotspots }}" hint-placeholder-val="{{ true }}">
+          <div style="position:absolute; left:40%; top:25%; transform:translate(-50%,-50%); animation:hudIn 600ms ease-out 300ms both;">
+            <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); border-radius:50%; border:1.5px solid #FFC531; animation:pulse 2.4s ease-out infinite;"></div>
+            <div style="width:13px; height:13px; border-radius:50%; background:#FFC531; box-shadow:0 0 12px rgba(255,197,49,0.8);"></div>
+            <span style="position:absolute; top:22px; left:50%; transform:translateX(-50%); white-space:nowrap; font-family:'Space Mono',monospace; font-size:10px; letter-spacing:0.1em; color:#FFC531; background:rgba(8,14,24,0.65); backdrop-filter:blur(28px); padding:5px 10px; border-radius:6px; border:1px solid rgba(255,197,49,0.35);">FIDS SCREEN</span>
+          </div>
+          <div style="position:absolute; left:55%; top:55%; transform:translate(-50%,-50%); animation:hudIn 600ms ease-out 380ms both;">
+            <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); border-radius:50%; border:1.5px solid #FFC531; animation:pulse 2.4s ease-out infinite;"></div>
+            <div style="width:13px; height:13px; border-radius:50%; background:#FFC531; box-shadow:0 0 12px rgba(255,197,49,0.8);"></div>
+            <span style="position:absolute; top:22px; left:50%; transform:translateX(-50%); white-space:nowrap; font-family:'Space Mono',monospace; font-size:10px; letter-spacing:0.1em; color:#FFC531; background:rgba(8,14,24,0.65); backdrop-filter:blur(28px); padding:5px 10px; border-radius:6px; border:1px solid rgba(255,197,49,0.35);">JET BRIDGE</span>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+
+  </div>
+</section>
+<section style="padding:56px; display:flex; flex-direction:column; gap:28px;">
+  <div style="max-width:720px; display:flex; flex-direction:column; gap:8px;">
+    <div style="font-family:'Outfit',sans-serif; font-size:13px; font-weight:600; letter-spacing:0.18em; color:#FFC531;">TURN 2 · PUSHING 1D — WAYFINDING MONO</div>
+    <div style="font-family:'Outfit',sans-serif; font-size:26px; font-weight:600; color:#FFFFFF;">Three developments of the mono direction</div>
+    <div style="font-size:14px; line-height:1.6; color:rgba(255,255,255,0.6);">2a tightens the system and proves it on the busiest checkpoint. 2b swaps signage gold for a calmer ivory. 2c moves the card cluster to a bottom dock and folds the step label into it.</div>
+  </div>
+  <div style="display:flex; flex-wrap:wrap; gap:48px; align-items:flex-start;">
+
+    <!-- ============ 2a — MONO, TIGHTENED (security) ============ -->
+    <div id="2a" style="display:flex; flex-direction:column; gap:12px;">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <div style="background:#FFC531; color:#141A26; font-family:'Space Mono',monospace; font-weight:700; font-size:12px; padding:3px 9px; border-radius:6px;">2a</div>
+        <div style="font-family:'Outfit',sans-serif; font-size:14px; font-weight:600; color:#FFFFFF;">Mono, tightened</div>
+        <div style="font-size:12px; color:rgba(255,255,255,0.45);">Security · gold reserved for the active step, done steps filled quiet</div>
+      </div>
+      <div style="position:relative; width:1280px; height:720px; border-radius:10px; overflow:hidden; background:#0A1628 url('assets/security-bg.jpeg') center/cover;">
+        <div style="position:absolute; top:28px; left:28px; background:rgba(8,14,24,0.65); backdrop-filter:blur(28px) saturate(130%); padding:9px 16px; border-radius:10px; border:1px solid rgba(255,255,255,0.12); display:flex; align-items:center; gap:10px; animation:hudIn 600ms ease-out both;">
+          <span style="font-family:'Space Mono',monospace; font-size:13px; letter-spacing:0.08em; color:#FFC531;">SEC // 03</span>
+          <span style="width:1px; height:14px; background:rgba(255,255,255,0.2);"></span>
+          <span style="font-family:'Space Grotesk',sans-serif; font-size:13px; color:rgba(255,255,255,0.85);">Security Check</span>
+        </div>
+        <div style="position:absolute; top:28px; left:50%; transform:translateX(-50%); display:flex; align-items:center; gap:8px; padding:8px 10px; background:rgba(8,14,24,0.65); backdrop-filter:blur(28px) saturate(130%); border-radius:12px; border:1px solid rgba(255,255,255,0.12); animation:hudInC 600ms ease-out 100ms both;">
+          <div style="width:30px; height:30px; border-radius:8px; background:rgba(255,255,255,0.14); display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-size:11px; color:rgba(255,255,255,0.75);">01</div>
+          <div style="width:30px; height:30px; border-radius:8px; background:rgba(255,255,255,0.14); display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-size:11px; color:rgba(255,255,255,0.75);">02</div>
+          <div style="display:flex; align-items:center; gap:8px; height:30px; border-radius:8px; background:#FFC531; padding:0 12px;"><span style="font-family:'Space Mono',monospace; font-size:11px; font-weight:700; color:#141A26;">03</span><span style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.08em; color:#141A26;">SECURITY</span></div>
+          <div style="width:30px; height:30px; border-radius:8px; border:1px solid rgba(255,255,255,0.18); display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-size:11px; color:rgba(255,255,255,0.4);">04</div>
+        </div>
+        <div style="position:absolute; left:28px; top:50%; transform:translateY(-50%); display:flex; flex-direction:column; gap:12px; max-width:390px; animation:hudInM 600ms ease-out 200ms both;">
+          <div style="background:rgba(8,14,24,0.65); backdrop-filter:blur(28px) saturate(130%); border-radius:12px; padding:22px 24px; border:1px solid rgba(255,255,255,0.12); box-shadow:0 12px 40px rgba(0,0,0,0.4);">
+            <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
+              <div style="width:32px; height:32px; border-radius:8px; background:#FFC531; color:#141A26; display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-weight:700; font-size:15px; flex-shrink:0;">i</div>
+              <h3 style="font-family:'Space Grotesk',sans-serif; font-size:20px; font-weight:600; color:#FFFFFF; margin:0;">Security Screening</h3>
+            </div>
+            <p style="font-family:'Space Grotesk',sans-serif; font-size:14px; line-height:1.6; color:rgba(255,255,255,0.75); margin:0; text-wrap:pretty;">Place your electronics and liquids in a tray. Remove your belt and jacket if asked. Walk through the metal detector, then collect your belongings from the X-ray belt on the other side.</p>
+          </div>
+          <div style="background:rgba(8,14,24,0.65); backdrop-filter:blur(28px) saturate(130%); border-radius:12px; padding:14px 18px; border:1px solid rgba(255,255,255,0.12); display:flex; gap:12px; align-items:flex-start;">
+            <span style="font-family:'Space Mono',monospace; font-size:10px; color:#FFC531; border:1px solid rgba(255,197,49,0.5); border-radius:6px; padding:3px 8px; flex-shrink:0; letter-spacing:0.1em;">TIP</span>
+            <span style="font-family:'Space Grotesk',sans-serif; font-size:13px; line-height:1.55; color:rgba(255,255,255,0.72);">Wear easy-to-remove shoes. Keep liquids in a clear zip-lock bag — 100ml max per item.</span>
+          </div>
+        </div>
+        <sc-if value="{{ showHotspots }}" hint-placeholder-val="{{ true }}">
+          <div style="position:absolute; left:35%; top:50%; transform:translate(-50%,-50%); animation:hudIn 600ms ease-out 300ms both;">
+            <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); border-radius:50%; border:1.5px solid #FFC531; animation:pulse 2.4s ease-out infinite;"></div>
+            <div style="width:13px; height:13px; border-radius:50%; background:#FFC531; box-shadow:0 0 12px rgba(255,197,49,0.8);"></div>
+            <span style="position:absolute; top:22px; left:50%; transform:translateX(-50%); white-space:nowrap; font-family:'Space Mono',monospace; font-size:10px; letter-spacing:0.1em; color:#FFC531; background:rgba(8,14,24,0.65); backdrop-filter:blur(28px); padding:5px 10px; border-radius:6px; border:1px solid rgba(255,197,49,0.35);">X-RAY BELT</span>
+          </div>
+          <div style="position:absolute; left:60%; top:40%; transform:translate(-50%,-50%); animation:hudIn 600ms ease-out 380ms both;">
+            <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); border-radius:50%; border:1.5px solid #FFC531; animation:pulse 2.4s ease-out infinite;"></div>
+            <div style="width:13px; height:13px; border-radius:50%; background:#FFC531; box-shadow:0 0 12px rgba(255,197,49,0.8);"></div>
+            <span style="position:absolute; top:22px; left:50%; transform:translateX(-50%); white-space:nowrap; font-family:'Space Mono',monospace; font-size:10px; letter-spacing:0.1em; color:#FFC531; background:rgba(8,14,24,0.65); backdrop-filter:blur(28px); padding:5px 10px; border-radius:6px; border:1px solid rgba(255,197,49,0.35);">METAL DETECTOR</span>
+          </div>
+          <div style="position:absolute; left:25%; top:65%; transform:translate(-50%,-50%); animation:hudIn 600ms ease-out 460ms both;">
+            <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); border-radius:50%; border:1.5px solid #FFC531; animation:pulse 2.4s ease-out infinite;"></div>
+            <div style="width:13px; height:13px; border-radius:50%; background:#FFC531; box-shadow:0 0 12px rgba(255,197,49,0.8);"></div>
+            <span style="position:absolute; top:22px; left:50%; transform:translateX(-50%); white-space:nowrap; font-family:'Space Mono',monospace; font-size:10px; letter-spacing:0.1em; color:#FFC531; background:rgba(8,14,24,0.65); backdrop-filter:blur(28px); padding:5px 10px; border-radius:6px; border:1px solid rgba(255,197,49,0.35);">TRAY AREA</span>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+
+    <!-- ============ 2b — MONO, IVORY (entrance) ============ -->
+    <div id="2b" style="display:flex; flex-direction:column; gap:12px;">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <div style="background:#FFC531; color:#141A26; font-family:'Space Mono',monospace; font-weight:700; font-size:12px; padding:3px 9px; border-radius:6px;">2b</div>
+        <div style="font-family:'Outfit',sans-serif; font-size:14px; font-weight:600; color:#FFFFFF;">Mono, ivory</div>
+        <div style="font-size:12px; color:rgba(255,255,255,0.45);">Entrance · same structure, calmer warm-white accent, softer radii</div>
+      </div>
+      <div style="position:relative; width:1280px; height:720px; border-radius:10px; overflow:hidden; background:#0A1628 url('assets/entrance-bg.jpeg') center/cover;">
+        <div style="position:absolute; top:28px; left:28px; background:rgba(10,15,24,0.6); backdrop-filter:blur(28px) saturate(130%); padding:9px 16px; border-radius:14px; border:1px solid rgba(255,255,255,0.14); display:flex; align-items:center; gap:10px; animation:hudIn 600ms ease-out both;">
+          <span style="font-family:'Space Mono',monospace; font-size:13px; letter-spacing:0.08em; color:#EDE7D8;">ENT // 01</span>
+          <span style="width:1px; height:14px; background:rgba(255,255,255,0.2);"></span>
+          <span style="font-family:'Space Grotesk',sans-serif; font-size:13px; color:rgba(255,255,255,0.85);">Entrance — Doors</span>
+        </div>
+        <div style="position:absolute; top:28px; left:50%; transform:translateX(-50%); display:flex; align-items:center; gap:8px; padding:8px 10px; background:rgba(10,15,24,0.6); backdrop-filter:blur(28px) saturate(130%); border-radius:16px; border:1px solid rgba(255,255,255,0.14); animation:hudInC 600ms ease-out 100ms both;">
+          <div style="display:flex; align-items:center; gap:8px; height:30px; border-radius:10px; background:#EDE7D8; padding:0 12px;"><span style="font-family:'Space Mono',monospace; font-size:11px; font-weight:700; color:#141A26;">01</span><span style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.08em; color:#141A26;">ENTRANCE</span></div>
+          <div style="width:30px; height:30px; border-radius:10px; border:1px solid rgba(255,255,255,0.18); display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-size:11px; color:rgba(255,255,255,0.4);">02</div>
+          <div style="width:30px; height:30px; border-radius:10px; border:1px solid rgba(255,255,255,0.18); display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-size:11px; color:rgba(255,255,255,0.4);">03</div>
+          <div style="width:30px; height:30px; border-radius:10px; border:1px solid rgba(255,255,255,0.18); display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-size:11px; color:rgba(255,255,255,0.4);">04</div>
+        </div>
+        <div style="position:absolute; left:28px; top:50%; transform:translateY(-50%); display:flex; flex-direction:column; gap:12px; max-width:390px; animation:hudInM 600ms ease-out 200ms both;">
+          <div style="background:rgba(10,15,24,0.6); backdrop-filter:blur(28px) saturate(130%); border-radius:16px; padding:22px 24px; border:1px solid rgba(255,255,255,0.14); box-shadow:0 12px 40px rgba(0,0,0,0.4);">
+            <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
+              <div style="width:32px; height:32px; border-radius:10px; background:#EDE7D8; color:#141A26; display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-weight:700; font-size:15px; flex-shrink:0;">i</div>
+              <h3 style="font-family:'Space Grotesk',sans-serif; font-size:20px; font-weight:600; color:#FFFFFF; margin:0;">Welcome to the Airport</h3>
+            </div>
+            <p style="font-family:'Space Grotesk',sans-serif; font-size:14px; line-height:1.6; color:rgba(255,255,255,0.75); margin:0; text-wrap:pretty;">You've arrived at the terminal entrance. Look for the Departures signage above the doors. Have your ID and boarding pass ready before you walk in.</p>
+          </div>
+          <div style="background:rgba(10,15,24,0.6); backdrop-filter:blur(28px) saturate(130%); border-radius:16px; padding:14px 18px; border:1px solid rgba(255,255,255,0.14); display:flex; gap:12px; align-items:flex-start;">
+            <span style="font-family:'Space Mono',monospace; font-size:10px; color:#EDE7D8; border:1px solid rgba(237,231,216,0.5); border-radius:8px; padding:3px 8px; flex-shrink:0; letter-spacing:0.1em;">TIP</span>
+            <span style="font-family:'Space Grotesk',sans-serif; font-size:13px; line-height:1.55; color:rgba(255,255,255,0.72);">Keep your documents in an easily accessible pocket — you'll need them at every checkpoint.</span>
+          </div>
+        </div>
+        <sc-if value="{{ showHotspots }}" hint-placeholder-val="{{ true }}">
+          <div style="position:absolute; left:50%; top:20%; transform:translate(-50%,-50%); animation:hudIn 600ms ease-out 300ms both;">
+            <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); border-radius:50%; border:1.5px solid #EDE7D8; animation:pulse 2.6s ease-out infinite;"></div>
+            <div style="width:12px; height:12px; border-radius:50%; background:#EDE7D8; box-shadow:0 0 12px rgba(237,231,216,0.8);"></div>
+            <span style="position:absolute; top:22px; left:50%; transform:translateX(-50%); white-space:nowrap; font-family:'Space Mono',monospace; font-size:10px; letter-spacing:0.1em; color:#EDE7D8; background:rgba(10,15,24,0.6); backdrop-filter:blur(28px); padding:5px 10px; border-radius:8px; border:1px solid rgba(237,231,216,0.3);">DEPARTURES SIGN</span>
+          </div>
+          <div style="position:absolute; left:50%; top:55%; transform:translate(-50%,-50%); animation:hudIn 600ms ease-out 380ms both;">
+            <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); border-radius:50%; border:1.5px solid #EDE7D8; animation:pulse 2.6s ease-out infinite;"></div>
+            <div style="width:12px; height:12px; border-radius:50%; background:#EDE7D8; box-shadow:0 0 12px rgba(237,231,216,0.8);"></div>
+            <span style="position:absolute; top:22px; left:50%; transform:translateX(-50%); white-space:nowrap; font-family:'Space Mono',monospace; font-size:10px; letter-spacing:0.1em; color:#EDE7D8; background:rgba(10,15,24,0.6); backdrop-filter:blur(28px); padding:5px 10px; border-radius:8px; border:1px solid rgba(237,231,216,0.3);">ENTRY DOORS</span>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+
+    <!-- ============ 2c — MONO, BOTTOM DOCK (check-in) ============ -->
+    <div id="2c" style="display:flex; flex-direction:column; gap:12px;">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <div style="background:#FFC531; color:#141A26; font-family:'Space Mono',monospace; font-weight:700; font-size:12px; padding:3px 9px; border-radius:6px;">2c</div>
+        <div style="font-family:'Outfit',sans-serif; font-size:14px; font-weight:600; color:#FFFFFF;">Mono, bottom dock</div>
+        <div style="font-size:12px; color:rgba(255,255,255,0.45);">Check-in · card + tip docked bottom-left, step label folded into the card</div>
+      </div>
+      <div style="position:relative; width:1280px; height:720px; border-radius:10px; overflow:hidden; background:#0A1628 url('assets/checkin-bg.jpeg') center/cover;">
+        <div style="position:absolute; top:28px; left:50%; transform:translateX(-50%); display:flex; align-items:center; gap:8px; padding:8px 10px; background:rgba(8,14,24,0.65); backdrop-filter:blur(28px) saturate(130%); border-radius:12px; border:1px solid rgba(255,255,255,0.12); animation:hudInC 600ms ease-out both;">
+          <div style="width:30px; height:30px; border-radius:8px; background:rgba(255,255,255,0.14); display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-size:11px; color:rgba(255,255,255,0.75);">01</div>
+          <div style="display:flex; align-items:center; gap:8px; height:30px; border-radius:8px; background:#FFC531; padding:0 12px;"><span style="font-family:'Space Mono',monospace; font-size:11px; font-weight:700; color:#141A26;">02</span><span style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.08em; color:#141A26;">CHECK-IN</span></div>
+          <div style="width:30px; height:30px; border-radius:8px; border:1px solid rgba(255,255,255,0.18); display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-size:11px; color:rgba(255,255,255,0.4);">03</div>
+          <div style="width:30px; height:30px; border-radius:8px; border:1px solid rgba(255,255,255,0.18); display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-size:11px; color:rgba(255,255,255,0.4);">04</div>
+        </div>
+        <div style="position:absolute; left:28px; bottom:28px; display:flex; flex-direction:column; gap:12px; max-width:430px; animation:hudIn 600ms ease-out 150ms both;">
+          <div style="background:rgba(8,14,24,0.65); backdrop-filter:blur(28px) saturate(130%); border-radius:12px; padding:22px 24px; border:1px solid rgba(255,255,255,0.12); box-shadow:0 12px 40px rgba(0,0,0,0.4);">
+            <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
+              <span style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.08em; color:#FFC531; border:1px solid rgba(255,197,49,0.45); border-radius:6px; padding:3px 8px;">CHK // 02</span>
+              <h3 style="font-family:'Space Grotesk',sans-serif; font-size:19px; font-weight:600; color:#FFFFFF; margin:0;">Check-in &amp; Baggage Drop</h3>
+            </div>
+            <p style="font-family:'Space Grotesk',sans-serif; font-size:14px; line-height:1.6; color:rgba(255,255,255,0.75); margin:0; text-wrap:pretty;">Present your ID and booking reference at the airline counter. The agent will verify your documents, check your luggage, and issue your boarding pass.</p>
+          </div>
+          <div style="background:rgba(8,14,24,0.65); backdrop-filter:blur(28px) saturate(130%); border-radius:12px; padding:14px 18px; border:1px solid rgba(255,255,255,0.12); display:flex; gap:12px; align-items:flex-start;">
+            <span style="font-family:'Space Mono',monospace; font-size:10px; color:#FFC531; border:1px solid rgba(255,197,49,0.5); border-radius:6px; padding:3px 8px; flex-shrink:0; letter-spacing:0.1em;">TIP</span>
+            <span style="font-family:'Space Grotesk',sans-serif; font-size:13px; line-height:1.55; color:rgba(255,255,255,0.72);">Weigh your luggage at home. Excess baggage fees are expensive and can slow you down.</span>
+          </div>
+        </div>
+        <sc-if value="{{ showHotspots }}" hint-placeholder-val="{{ true }}">
+          <div style="position:absolute; left:50%; top:45%; transform:translate(-50%,-50%); animation:hudIn 600ms ease-out 300ms both;">
+            <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); border-radius:50%; border:1.5px solid #FFC531; animation:pulse 2.4s ease-out infinite;"></div>
+            <div style="width:13px; height:13px; border-radius:50%; background:#FFC531; box-shadow:0 0 12px rgba(255,197,49,0.8);"></div>
+            <span style="position:absolute; top:22px; left:50%; transform:translateX(-50%); white-space:nowrap; font-family:'Space Mono',monospace; font-size:10px; letter-spacing:0.1em; color:#FFC531; background:rgba(8,14,24,0.65); backdrop-filter:blur(28px); padding:5px 10px; border-radius:6px; border:1px solid rgba(255,197,49,0.35);">CHECK-IN COUNTER</span>
+          </div>
+          <div style="position:absolute; left:50%; top:15%; transform:translate(-50%,-50%); animation:hudIn 600ms ease-out 380ms both;">
+            <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); border-radius:50%; border:1.5px solid #FFC531; animation:pulse 2.4s ease-out infinite;"></div>
+            <div style="width:13px; height:13px; border-radius:50%; background:#FFC531; box-shadow:0 0 12px rgba(255,197,49,0.8);"></div>
+            <span style="position:absolute; top:22px; left:50%; transform:translateX(-50%); white-space:nowrap; font-family:'Space Mono',monospace; font-size:10px; letter-spacing:0.1em; color:#FFC531; background:rgba(8,14,24,0.65); backdrop-filter:blur(28px); padding:5px 10px; border-radius:6px; border:1px solid rgba(255,197,49,0.35);">FIDS BOARD</span>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+
+  </div>
+</section>
+<section style="padding:56px; display:flex; flex-direction:column; gap:28px;">
+  <div style="max-width:720px; display:flex; flex-direction:column; gap:8px;">
+    <div style="font-family:'Outfit',sans-serif; font-size:13px; font-weight:600; letter-spacing:0.18em; color:#E7C58F;">TURN 1 · CALM WINGS HUD</div>
+    <div style="font-family:'Outfit',sans-serif; font-size:26px; font-weight:600; color:#FFFFFF;">Checkpoint card · tip panel · progress bar</div>
+    <div style="font-size:14px; line-height:1.6; color:rgba(255,255,255,0.6);">1a is the current UI recreated for reference. 1b–1d explore layout, glass treatment, typography, and progress concepts — one scene each. Step labels and hotspots restyled to match.</div>
+  </div>
+  <div style="display:flex; flex-wrap:wrap; gap:48px; align-items:flex-start;">
+
+    <!-- ============ 1a — CURRENT (recreation) ============ -->
+    <div id="1a" style="display:flex; flex-direction:column; gap:12px;">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <div style="background:#E7C58F; color:#141A26; font-family:'Space Mono',monospace; font-weight:700; font-size:12px; padding:3px 9px; border-radius:6px;">1a</div>
+        <div style="font-family:'Outfit',sans-serif; font-size:14px; font-weight:600; color:#FFFFFF;">Current UI — recreation</div>
+        <div style="font-size:12px; color:rgba(255,255,255,0.45);">Entrance · gold + blue, solid white card</div>
+      </div>
+      <div style="position:relative; width:1280px; height:720px; border-radius:10px; overflow:hidden; background:#0A1628 url('assets/entrance-bg.jpeg') center/cover;">
+        <div style="position:absolute; top:24px; left:24px; background:rgba(10,22,40,0.85); backdrop-filter:blur(12px); color:#FFFFFF; padding:8px 16px; border-radius:999px; font-family:'Outfit',sans-serif; font-weight:600; font-size:14px; letter-spacing:0.05em; border:1px solid rgba(245,166,35,0.3); animation:hudIn 600ms ease-out both;">1. ENTRANCE — DOORS</div>
+        <div style="position:absolute; top:24px; left:50%; transform:translateX(-50%); display:flex; gap:12px; padding:8px 16px; background:rgba(10,22,40,0.85); backdrop-filter:blur(12px); border-radius:999px; border:1px solid rgba(255,255,255,0.1); animation:hudInC 600ms ease-out 100ms both;">
+          <div style="width:10px; height:10px; border-radius:50%; background:#F5A623; transform:scale(1.4); box-shadow:0 0 8px #F5A623;"></div>
+          <div style="width:10px; height:10px; border-radius:50%; background:rgba(255,255,255,0.2);"></div>
+          <div style="width:10px; height:10px; border-radius:50%; background:rgba(255,255,255,0.2);"></div>
+          <div style="width:10px; height:10px; border-radius:50%; background:rgba(255,255,255,0.2);"></div>
+        </div>
+        <div style="position:absolute; left:24px; top:50%; transform:translateY(-50%); display:flex; flex-direction:column; gap:12px; max-width:360px; animation:hudInM 600ms ease-out 200ms both;">
+          <div style="display:flex; gap:12px; background:rgba(255,255,255,0.95); border-radius:16px; padding:20px; box-shadow:0 4px 24px rgba(0,0,0,0.4);">
+            <div style="font-size:20px; width:36px; height:36px; display:flex; align-items:center; justify-content:center; background:#3B82F6; color:white; border-radius:50%; flex-shrink:0; font-style:italic; font-weight:bold;">i</div>
+            <div>
+              <h3 style="font-family:'Outfit',sans-serif; font-size:18px; font-weight:700; color:#1A1A2E; margin:0 0 8px;">Welcome to the Airport</h3>
+              <p style="font-size:14px; line-height:1.5; color:#1A1A2E; opacity:0.85; margin:0;">You've arrived at the terminal entrance. Look for the Departures signage above the doors. Have your ID and boarding pass ready before you walk in.</p>
+            </div>
+          </div>
+          <div style="display:flex; align-items:flex-start; gap:10px; background:rgba(10,22,40,0.85); backdrop-filter:blur(12px); border-radius:16px; padding:16px 20px; border:1px solid rgba(245,166,35,0.2);">
+            <span style="font-size:18px; flex-shrink:0;">💡</span>
+            <span style="font-size:13px; line-height:1.5; color:rgba(255,255,255,0.7);">Keep your documents in an easily accessible pocket — you'll need them at every checkpoint.</span>
+          </div>
+        </div>
+        <sc-if value="{{ showHotspots }}" hint-placeholder-val="{{ true }}">
+          <div style="position:absolute; left:50%; top:20%; transform:translate(-50%,-50%); animation:hudIn 600ms ease-out 300ms both;">
+            <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); border-radius:50%; border:2px solid #F5A623; animation:pulse 2s ease-out infinite;"></div>
+            <div style="width:16px; height:16px; border-radius:50%; background:#F5A623; box-shadow:0 0 12px #F5A623;"></div>
+            <span style="position:absolute; top:24px; left:50%; transform:translateX(-50%); white-space:nowrap; font-size:12px; font-weight:500; color:#F5A623; background:rgba(10,22,40,0.85); backdrop-filter:blur(12px); padding:4px 10px; border-radius:999px; border:1px solid rgba(245,166,35,0.3);">Departures Sign</span>
+          </div>
+          <div style="position:absolute; left:50%; top:55%; transform:translate(-50%,-50%); animation:hudIn 600ms ease-out 380ms both;">
+            <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); border-radius:50%; border:2px solid #F5A623; animation:pulse 2s ease-out infinite;"></div>
+            <div style="width:16px; height:16px; border-radius:50%; background:#F5A623; box-shadow:0 0 12px #F5A623;"></div>
+            <span style="position:absolute; top:24px; left:50%; transform:translateX(-50%); white-space:nowrap; font-size:12px; font-weight:500; color:#F5A623; background:rgba(10,22,40,0.85); backdrop-filter:blur(12px); padding:4px 10px; border-radius:999px; border:1px solid rgba(245,166,35,0.3);">Entry Doors</span>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+
+    <!-- ============ 1b — CHAMPAGNE GLASS ============ -->
+    <div id="1b" style="display:flex; flex-direction:column; gap:12px;">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <div style="background:#E7C58F; color:#141A26; font-family:'Space Mono',monospace; font-weight:700; font-size:12px; padding:3px 9px; border-radius:6px;">1b</div>
+        <div style="font-family:'Outfit',sans-serif; font-size:14px; font-weight:600; color:#FFFFFF;">Champagne Glass</div>
+        <div style="font-size:12px; color:rgba(255,255,255,0.45);">Check-in · one unified dark glass, softened gold, segmented journey bar</div>
+      </div>
+      <div style="position:relative; width:1280px; height:720px; border-radius:10px; overflow:hidden; background:#0A1628 url('assets/checkin-bg.jpeg') center/cover;">
+        <div style="position:absolute; top:28px; left:28px; display:flex; flex-direction:column; gap:2px; background:rgba(13,21,36,0.55); backdrop-filter:blur(20px) saturate(140%); padding:10px 18px; border-radius:14px; border:1px solid rgba(255,255,255,0.14); animation:hudIn 600ms ease-out both;">
+          <span style="font-family:'Outfit',sans-serif; font-size:11px; font-weight:600; letter-spacing:0.22em; color:#E7C58F;">CHECKPOINT 02</span>
+          <span style="font-family:'Outfit',sans-serif; font-size:14px; font-weight:500; letter-spacing:0.02em; color:#FFFFFF;">Check-in Counter</span>
+        </div>
+        <div style="position:absolute; top:28px; left:50%; transform:translateX(-50%); display:flex; align-items:center; gap:0; padding:14px 22px; background:rgba(13,21,36,0.55); backdrop-filter:blur(20px) saturate(140%); border-radius:999px; border:1px solid rgba(255,255,255,0.14); animation:hudInC 600ms ease-out 100ms both;">
+          <div style="position:relative; display:flex; flex-direction:column; align-items:center;"><div style="width:9px; height:9px; border-radius:50%; background:#E7C58F;"></div><sc-if value="{{ labelsAlways }}" hint-placeholder-val="{{ false }}"><span style="position:absolute; top:18px; white-space:nowrap; font-size:10px; letter-spacing:0.12em; color:rgba(255,255,255,0.6);">ENTRANCE</span></sc-if></div>
+          <div style="width:34px; height:2px; background:#E7C58F;"></div>
+          <div style="position:relative; display:flex; flex-direction:column; align-items:center;"><div style="width:9px; height:9px; border-radius:50%; background:#E7C58F; box-shadow:0 0 0 5px rgba(231,197,143,0.22);"></div><span style="position:absolute; top:18px; white-space:nowrap; font-family:'Outfit',sans-serif; font-size:11px; font-weight:600; letter-spacing:0.14em; color:#E7C58F;">CHECK-IN</span></div>
+          <div style="width:34px; height:2px; background:rgba(255,255,255,0.18);"></div>
+          <div style="position:relative; display:flex; flex-direction:column; align-items:center;"><div style="width:9px; height:9px; border-radius:50%; background:rgba(255,255,255,0.22);"></div><sc-if value="{{ labelsAlways }}" hint-placeholder-val="{{ false }}"><span style="position:absolute; top:18px; white-space:nowrap; font-size:10px; letter-spacing:0.12em; color:rgba(255,255,255,0.6);">SECURITY</span></sc-if></div>
+          <div style="width:34px; height:2px; background:rgba(255,255,255,0.18);"></div>
+          <div style="position:relative; display:flex; flex-direction:column; align-items:center;"><div style="width:9px; height:9px; border-radius:50%; background:rgba(255,255,255,0.22);"></div><sc-if value="{{ labelsAlways }}" hint-placeholder-val="{{ false }}"><span style="position:absolute; top:18px; white-space:nowrap; font-size:10px; letter-spacing:0.12em; color:rgba(255,255,255,0.6);">BOARDING</span></sc-if></div>
+        </div>
+        <div style="position:absolute; left:28px; top:50%; transform:translateY(-50%); display:flex; flex-direction:column; gap:14px; max-width:380px; animation:hudInM 600ms ease-out 200ms both;">
+          <div style="background:rgba(13,21,36,0.55); backdrop-filter:blur(20px) saturate(140%); border-radius:18px; padding:24px 26px; border:1px solid rgba(255,255,255,0.14); box-shadow:0 12px 40px rgba(0,0,0,0.35);">
+            <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
+              <div style="width:32px; height:32px; border-radius:50%; border:1px solid rgba(231,197,143,0.7); display:flex; align-items:center; justify-content:center; color:#E7C58F; font-family:'Instrument Serif',serif; font-style:italic; font-size:18px; flex-shrink:0;">i</div>
+              <h3 style="font-family:'Outfit',sans-serif; font-size:20px; font-weight:600; color:#FFFFFF; margin:0; letter-spacing:0.01em;">Check-in Counter</h3>
+            </div>
+            <p style="font-size:14px; line-height:1.65; color:rgba(255,255,255,0.75); margin:0;">Present your ID and booking reference at the airline counter. The agent will verify your documents, check your luggage, and issue your boarding pass.</p>
+          </div>
+          <div style="background:rgba(13,21,36,0.55); backdrop-filter:blur(20px) saturate(140%); border-radius:18px; padding:16px 22px; border:1px solid rgba(255,255,255,0.14); display:flex; gap:12px; align-items:flex-start;">
+            <span style="color:#E7C58F; font-size:14px; flex-shrink:0; line-height:1.5;">✦</span>
+            <div>
+              <div style="font-family:'Outfit',sans-serif; font-size:10px; font-weight:600; letter-spacing:0.22em; color:#E7C58F; margin-bottom:4px;">TRAVELLER TIP</div>
+              <div style="font-size:13px; line-height:1.6; color:rgba(255,255,255,0.72);">Weigh your luggage at home. Excess baggage fees are expensive and can slow you down.</div>
+            </div>
+          </div>
+        </div>
+        <sc-if value="{{ showHotspots }}" hint-placeholder-val="{{ true }}">
+          <div style="position:absolute; left:50%; top:45%; transform:translate(-50%,-50%); animation:hudIn 600ms ease-out 300ms both;">
+            <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); border-radius:50%; border:1.5px solid #E7C58F; animation:pulse 2.6s ease-out infinite;"></div>
+            <div style="width:12px; height:12px; border-radius:50%; background:#E7C58F; box-shadow:0 0 14px rgba(231,197,143,0.8);"></div>
+            <span style="position:absolute; top:22px; left:50%; transform:translateX(-50%); white-space:nowrap; font-family:'Outfit',sans-serif; font-size:11px; font-weight:500; letter-spacing:0.12em; color:#F2DDBA; background:rgba(13,21,36,0.55); backdrop-filter:blur(20px); padding:5px 12px; border-radius:999px; border:1px solid rgba(255,255,255,0.14);">CHECK-IN COUNTER</span>
+          </div>
+          <div style="position:absolute; left:50%; top:15%; transform:translate(-50%,-50%); animation:hudIn 600ms ease-out 380ms both;">
+            <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); border-radius:50%; border:1.5px solid #E7C58F; animation:pulse 2.6s ease-out infinite;"></div>
+            <div style="width:12px; height:12px; border-radius:50%; background:#E7C58F; box-shadow:0 0 14px rgba(231,197,143,0.8);"></div>
+            <span style="position:absolute; top:22px; left:50%; transform:translateX(-50%); white-space:nowrap; font-family:'Outfit',sans-serif; font-size:11px; font-weight:500; letter-spacing:0.12em; color:#F2DDBA; background:rgba(13,21,36,0.55); backdrop-filter:blur(20px); padding:5px 12px; border-radius:999px; border:1px solid rgba(255,255,255,0.14);">FIDS BOARD</span>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+
+    <!-- ============ 1c — EDITORIAL SERIF ============ -->
+    <div id="1c" style="display:flex; flex-direction:column; gap:12px;">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <div style="background:#E7C58F; color:#141A26; font-family:'Space Mono',monospace; font-weight:700; font-size:12px; padding:3px 9px; border-radius:6px;">1c</div>
+        <div style="font-family:'Outfit',sans-serif; font-size:14px; font-weight:600; color:#FFFFFF;">Editorial Serif</div>
+        <div style="font-size:12px; color:rgba(255,255,255,0.45);">Security · light warm glass, serif display, thin journey line, bottom-anchored card</div>
+      </div>
+      <div style="position:relative; width:1280px; height:720px; border-radius:10px; overflow:hidden; background:#0A1628 url('assets/security-bg.jpeg') center/cover;">
+        <div style="position:absolute; top:30px; left:32px; display:flex; align-items:baseline; gap:10px; background:rgba(255,255,255,0.12); backdrop-filter:blur(24px) saturate(160%); padding:9px 18px; border-radius:999px; border:1px solid rgba(255,255,255,0.25); animation:hudIn 600ms ease-out both;">
+          <span style="font-family:'Instrument Serif',serif; font-style:italic; font-size:16px; color:rgba(255,255,255,0.85);">03</span>
+          <span style="font-size:11px; letter-spacing:0.2em; color:rgba(255,255,255,0.8);">SECURITY CHECK</span>
+        </div>
+        <div style="position:absolute; top:34px; left:50%; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; gap:0; animation:hudInC 600ms ease-out 100ms both;">
+          <div style="display:flex; align-items:center;">
+            <div style="position:relative; width:7px; height:7px; border-radius:50%; background:rgba(255,255,255,0.9);"><sc-if value="{{ labelsAlways }}" hint-placeholder-val="{{ false }}"><span style="position:absolute; top:16px; left:50%; transform:translateX(-50%); white-space:nowrap; font-family:'Instrument Serif',serif; font-style:italic; font-size:13px; color:rgba(255,255,255,0.75); text-shadow:0 1px 8px rgba(0,0,0,0.6);">Entrance</span></sc-if></div>
+            <div style="width:64px; height:1px; background:rgba(255,255,255,0.9);"></div>
+            <div style="position:relative; width:7px; height:7px; border-radius:50%; background:rgba(255,255,255,0.9);"><sc-if value="{{ labelsAlways }}" hint-placeholder-val="{{ false }}"><span style="position:absolute; top:16px; left:50%; transform:translateX(-50%); white-space:nowrap; font-family:'Instrument Serif',serif; font-style:italic; font-size:13px; color:rgba(255,255,255,0.75); text-shadow:0 1px 8px rgba(0,0,0,0.6);">Check-in</span></sc-if></div>
+            <div style="width:64px; height:1px; background:rgba(255,255,255,0.9);"></div>
+            <div style="position:relative; width:13px; height:13px; border-radius:50%; background:#FFFFFF; box-shadow:0 0 0 4px rgba(255,255,255,0.2), 0 1px 10px rgba(0,0,0,0.4);"><span style="position:absolute; top:20px; left:50%; transform:translateX(-50%); white-space:nowrap; font-family:'Instrument Serif',serif; font-style:italic; font-size:15px; color:#FFFFFF; text-shadow:0 1px 8px rgba(0,0,0,0.6);">Security</span></div>
+            <div style="width:64px; height:1px; background:rgba(255,255,255,0.35);"></div>
+            <div style="position:relative; width:7px; height:7px; border-radius:50%; background:rgba(255,255,255,0.35);"><sc-if value="{{ labelsAlways }}" hint-placeholder-val="{{ false }}"><span style="position:absolute; top:16px; left:50%; transform:translateX(-50%); white-space:nowrap; font-family:'Instrument Serif',serif; font-style:italic; font-size:13px; color:rgba(255,255,255,0.55); text-shadow:0 1px 8px rgba(0,0,0,0.6);">Boarding</span></sc-if></div>
+          </div>
+        </div>
+        <div style="position:absolute; left:32px; bottom:32px; display:flex; flex-direction:column; max-width:440px; border-radius:20px; overflow:hidden; border:1px solid rgba(255,255,255,0.25); box-shadow:0 16px 48px rgba(0,0,0,0.35); animation:hudIn 600ms ease-out 200ms both;">
+          <div style="background:rgba(255,255,255,0.12); backdrop-filter:blur(24px) saturate(160%); padding:26px 30px 22px;">
+            <div style="font-size:10px; letter-spacing:0.26em; color:rgba(255,255,255,0.65); margin-bottom:10px;">SECURITY SCREENING</div>
+            <h3 style="font-family:'Instrument Serif',serif; font-weight:400; font-size:30px; color:#FFFFFF; margin:0 0 10px; line-height:1.15;">Trays, belts &amp; detectors</h3>
+            <p style="font-size:13.5px; line-height:1.7; color:rgba(255,255,255,0.82); margin:0; text-wrap:pretty;">Place your electronics and liquids in a tray. Remove your belt and jacket if asked. Walk through the metal detector, then collect your belongings from the X-ray belt on the other side.</p>
+          </div>
+          <div style="background:rgba(255,255,255,0.08); backdrop-filter:blur(24px) saturate(160%); border-top:1px solid rgba(255,255,255,0.2); padding:14px 30px; display:flex; gap:10px; align-items:baseline;">
+            <span style="font-family:'Instrument Serif',serif; font-style:italic; font-size:15px; color:#FFFFFF; flex-shrink:0;">Tip</span>
+            <span style="font-size:12.5px; line-height:1.6; color:rgba(255,255,255,0.75);">Wear easy-to-remove shoes. Keep liquids in a clear zip-lock bag — 100ml max per item.</span>
+          </div>
+        </div>
+        <sc-if value="{{ showHotspots }}" hint-placeholder-val="{{ true }}">
+          <div style="position:absolute; left:35%; top:50%; transform:translate(-50%,-50%); animation:hudIn 600ms ease-out 300ms both;">
+            <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); border-radius:50%; border:1px solid rgba(255,255,255,0.9); animation:pulse 3s ease-out infinite;"></div>
+            <div style="width:11px; height:11px; border-radius:50%; background:#FFFFFF; box-shadow:0 0 12px rgba(255,255,255,0.7);"></div>
+            <span style="position:absolute; top:20px; left:50%; transform:translateX(-50%); white-space:nowrap; font-family:'Instrument Serif',serif; font-style:italic; font-size:14px; color:#FFFFFF; background:rgba(255,255,255,0.12); backdrop-filter:blur(24px); padding:4px 13px; border-radius:999px; border:1px solid rgba(255,255,255,0.25);">X-ray belt</span>
+          </div>
+          <div style="position:absolute; left:60%; top:40%; transform:translate(-50%,-50%); animation:hudIn 600ms ease-out 380ms both;">
+            <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); border-radius:50%; border:1px solid rgba(255,255,255,0.9); animation:pulse 3s ease-out infinite;"></div>
+            <div style="width:11px; height:11px; border-radius:50%; background:#FFFFFF; box-shadow:0 0 12px rgba(255,255,255,0.7);"></div>
+            <span style="position:absolute; top:20px; left:50%; transform:translateX(-50%); white-space:nowrap; font-family:'Instrument Serif',serif; font-style:italic; font-size:14px; color:#FFFFFF; background:rgba(255,255,255,0.12); backdrop-filter:blur(24px); padding:4px 13px; border-radius:999px; border:1px solid rgba(255,255,255,0.25);">Metal detector</span>
+          </div>
+          <div style="position:absolute; left:25%; top:65%; transform:translate(-50%,-50%); animation:hudIn 600ms ease-out 460ms both;">
+            <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); border-radius:50%; border:1px solid rgba(255,255,255,0.9); animation:pulse 3s ease-out infinite;"></div>
+            <div style="width:11px; height:11px; border-radius:50%; background:#FFFFFF; box-shadow:0 0 12px rgba(255,255,255,0.7);"></div>
+            <span style="position:absolute; top:20px; left:50%; transform:translateX(-50%); white-space:nowrap; font-family:'Instrument Serif',serif; font-style:italic; font-size:14px; color:#FFFFFF; background:rgba(255,255,255,0.12); backdrop-filter:blur(24px); padding:4px 13px; border-radius:999px; border:1px solid rgba(255,255,255,0.25);">Tray area</span>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+
+    <!-- ============ 1d — WAYFINDING MONO ============ -->
+    <div id="1d" style="display:flex; flex-direction:column; gap:12px;">
+      <div style="display:flex; align-items:center; gap:10px;">
+        <div style="background:#E7C58F; color:#141A26; font-family:'Space Mono',monospace; font-weight:700; font-size:12px; padding:3px 9px; border-radius:6px;">1d</div>
+        <div style="font-family:'Outfit',sans-serif; font-size:14px; font-weight:600; color:#FFFFFF;">Wayfinding Mono</div>
+        <div style="font-size:12px; color:rgba(255,255,255,0.45);">Boarding · signage-inspired, heavy glass, mono labels, numbered progress chips</div>
+      </div>
+      <div style="position:relative; width:1280px; height:720px; border-radius:10px; overflow:hidden; background:#0A1628 url('assets/boarding-bg.jpeg') center/cover;">
+        <div style="position:absolute; top:28px; left:28px; background:rgba(8,14,24,0.65); backdrop-filter:blur(28px) saturate(130%); color:#FFC531; padding:9px 16px; border-radius:10px; font-family:'Space Mono',monospace; font-size:13px; letter-spacing:0.08em; border:1px solid rgba(255,255,255,0.12); animation:hudIn 600ms ease-out both;">GATE // 04 BOARDING</div>
+        <div style="position:absolute; top:28px; left:50%; transform:translateX(-50%); display:flex; align-items:center; gap:8px; padding:8px 10px; background:rgba(8,14,24,0.65); backdrop-filter:blur(28px) saturate(130%); border-radius:12px; border:1px solid rgba(255,255,255,0.12); animation:hudInC 600ms ease-out 100ms both;">
+          <div style="position:relative; width:30px; height:30px; border-radius:8px; border:1px solid rgba(255,197,49,0.45); display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-size:11px; color:rgba(255,197,49,0.75);">01<sc-if value="{{ labelsAlways }}" hint-placeholder-val="{{ false }}"><span style="position:absolute; top:38px; left:50%; transform:translateX(-50%); white-space:nowrap; font-family:'Space Mono',monospace; font-size:9px; letter-spacing:0.1em; color:rgba(255,255,255,0.55);">ENTRANCE</span></sc-if></div>
+          <div style="position:relative; width:30px; height:30px; border-radius:8px; border:1px solid rgba(255,197,49,0.45); display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-size:11px; color:rgba(255,197,49,0.75);">02<sc-if value="{{ labelsAlways }}" hint-placeholder-val="{{ false }}"><span style="position:absolute; top:38px; left:50%; transform:translateX(-50%); white-space:nowrap; font-family:'Space Mono',monospace; font-size:9px; letter-spacing:0.1em; color:rgba(255,255,255,0.55);">CHECK-IN</span></sc-if></div>
+          <div style="position:relative; width:30px; height:30px; border-radius:8px; border:1px solid rgba(255,197,49,0.45); display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-size:11px; color:rgba(255,197,49,0.75);">03<sc-if value="{{ labelsAlways }}" hint-placeholder-val="{{ false }}"><span style="position:absolute; top:38px; left:50%; transform:translateX(-50%); white-space:nowrap; font-family:'Space Mono',monospace; font-size:9px; letter-spacing:0.1em; color:rgba(255,255,255,0.55);">SECURITY</span></sc-if></div>
+          <div style="position:relative; display:flex; align-items:center; gap:8px; height:30px; border-radius:8px; background:#FFC531; padding:0 12px;"><span style="font-family:'Space Mono',monospace; font-size:11px; font-weight:700; color:#141A26;">04</span><span style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.08em; color:#141A26;">BOARDING</span></div>
+        </div>
+        <div style="position:absolute; left:28px; top:50%; transform:translateY(-50%); display:flex; flex-direction:column; gap:12px; max-width:390px; animation:hudInM 600ms ease-out 200ms both;">
+          <div style="background:rgba(8,14,24,0.65); backdrop-filter:blur(28px) saturate(130%); border-radius:12px; padding:22px 24px; border:1px solid rgba(255,255,255,0.12); box-shadow:0 12px 40px rgba(0,0,0,0.4);">
+            <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
+              <div style="width:32px; height:32px; border-radius:8px; background:#FFC531; color:#141A26; display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-weight:700; font-size:15px; flex-shrink:0;">i</div>
+              <h3 style="font-family:'Space Grotesk',sans-serif; font-size:20px; font-weight:600; color:#FFFFFF; margin:0;">Boarding Gate</h3>
+            </div>
+            <p style="font-family:'Space Grotesk',sans-serif; font-size:14px; line-height:1.6; color:rgba(255,255,255,0.75); margin:0;">Check the FIDS screen for your gate number and flight status. When boarding is announced, join the queue for your group. Present your boarding pass at the gate, then walk through the jet bridge to the aircraft door.</p>
+          </div>
+          <div style="background:rgba(8,14,24,0.65); backdrop-filter:blur(28px) saturate(130%); border-radius:12px; padding:14px 18px; border:1px solid rgba(255,255,255,0.12); display:flex; gap:12px; align-items:flex-start;">
+            <span style="font-family:'Space Mono',monospace; font-size:10px; color:#FFC531; border:1px solid rgba(255,197,49,0.5); border-radius:6px; padding:3px 8px; flex-shrink:0; letter-spacing:0.1em;">TIP</span>
+            <span style="font-family:'Space Grotesk',sans-serif; font-size:13px; line-height:1.55; color:rgba(255,255,255,0.72);">Check the FIDS screen regularly — gates can change at the last minute. Listen for announcements.</span>
+          </div>
+        </div>
+        <sc-if value="{{ showHotspots }}" hint-placeholder-val="{{ true }}">
+          <div style="position:absolute; left:40%; top:25%; transform:translate(-50%,-50%); animation:hudIn 600ms ease-out 300ms both;">
+            <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); border-radius:50%; border:1.5px solid #FFC531; animation:pulse 2.4s ease-out infinite;"></div>
+            <div style="width:13px; height:13px; border-radius:50%; background:#FFC531; box-shadow:0 0 12px rgba(255,197,49,0.8);"></div>
+            <span style="position:absolute; top:22px; left:50%; transform:translateX(-50%); white-space:nowrap; font-family:'Space Mono',monospace; font-size:10px; letter-spacing:0.1em; color:#FFC531; background:rgba(8,14,24,0.65); backdrop-filter:blur(28px); padding:5px 10px; border-radius:6px; border:1px solid rgba(255,197,49,0.35);">FIDS SCREEN</span>
+          </div>
+          <div style="position:absolute; left:55%; top:55%; transform:translate(-50%,-50%); animation:hudIn 600ms ease-out 380ms both;">
+            <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); border-radius:50%; border:1.5px solid #FFC531; animation:pulse 2.4s ease-out infinite;"></div>
+            <div style="width:13px; height:13px; border-radius:50%; background:#FFC531; box-shadow:0 0 12px rgba(255,197,49,0.8);"></div>
+            <span style="position:absolute; top:22px; left:50%; transform:translateX(-50%); white-space:nowrap; font-family:'Space Mono',monospace; font-size:10px; letter-spacing:0.1em; color:#FFC531; background:rgba(8,14,24,0.65); backdrop-filter:blur(28px); padding:5px 10px; border-radius:6px; border:1px solid rgba(255,197,49,0.35);">JET BRIDGE</span>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+
+  </div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showHotspots&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;HUD&quot;},&quot;labelsAlways&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;HUD&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      showHotspots: this.props.showHotspots ?? true,
+      labelsAlways: this.props.labelsAlways ?? false,
+    };
+  }
+}
+</script>
+</body>
+</html>

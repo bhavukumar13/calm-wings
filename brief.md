@@ -2,17 +2,17 @@
 
 > **Codename:** Calm Wings
 > **Type:** Portfolio piece (creative engineer flex)
-> **Date:** 2026-07-15
+> **Date:** 2026-07-15 (MVP build) · updated 2026-07-16 (HUD redesign + interactivity)
 > **Deadline:** Friday 2026-07-17 morning
-> **Status:** ✅ BUILD COMPLETE — Ready for deploy
+> **Status:** ✅ BUILD COMPLETE — HUD "Wayfinding Mono" redesign + Part 2 interactivity (scroll-linked reveal, hover hotspot cards) shipped. Ready for deploy.
 
 ---
 
 ## 1. What This Is
 
-Calm Wings is a scroll-driven, first-person airport flythrough experience. The user scrolls to "walk" through 4 airport checkpoints — entrance, check-in, security, boarding — each rendered as AI-generated video frames composited into a spritesheet and scroll-scrubbed on an HTML canvas. At each checkpoint, the video pauses and a HUD overlay (info cards, tips, glowing hotspots, step badge) flows in, stays visible while the user scrolls through a "breathing room" section, then flows out as the next clip begins.
+Calm Wings is a scroll-driven, first-person airport flythrough experience. The user scrolls to "walk" through 4 airport checkpoints — entrance, check-in, security, boarding — each rendered as AI-generated video frames composited into a spritesheet and scroll-scrubbed on an HTML canvas. At each checkpoint, the video holds and a HUD overlay (info cards, tips, glowing hotspots, step badge) reveals in sync with scroll — opacity and offset driven directly by scroll position rather than a timed transition — stays visible while the user scrolls through a "breathing room" section, then reverse-fades as the next clip begins. Hovering a hotspot dot reveals a small info card with a title and short description.
 
-No interaction is required to progress. No clicking, no task completion, no locks. The user scrolls through the entire experience start to finish. The HUD overlays are visual atmosphere — they appear, linger, and disappear.
+No interaction is required to progress. No clicking, no task completion, no locks. The user scrolls through the entire experience start to finish. The HUD overlays are visual atmosphere — they appear, linger, and disappear. The one interactive touch is hover-only (hotspot info cards); there is no click or keyboard path, by design.
 
 The repo and README are part of the portfolio piece. The viewer should open the deployed site, scroll through the experience, then check the GitHub and think: **"How did they build this?"**
 
@@ -34,7 +34,10 @@ Asset Pipeline (COMPLETE):
   Web App (COMPLETE):
     React 19 + TypeScript + Vite 8
       Canvas scroll-scrub engine (spritesheet → drawImage, rAF render loop)
-      HUD overlay (pure React DOM, CSS flow-in/out transitions, cosmetic only)
+      HUD overlay: "Wayfinding Mono" visual design (dark glass, mono micro-labels,
+        numbered progress chips, gold reserved for the active step) + scroll-linked
+        reveal (opacity/offset driven by scroll, holds mid-checkpoint, reverse-fades
+        on exit) + hover-only hotspot info cards
       Journey complete screen (static image + summary card)
          ↓
   Deploy: static export to Vercel (PENDING — Emo to deploy)
@@ -65,42 +68,58 @@ Web app stays identical — only asset quality changes.
 
 ```
 Scroll 0px → 800px: Video clip 1 plays (entrance flythrough, 16 frames)
-Scroll 800px → 1250px: Video paused, HUD 1 flows in (info card + tips + hotspots + step badge)
+Scroll 800px → 1250px: Video holds; HUD 1 reveals in sync with scroll (100px
+  ramp-in), holds fully visible (250px), reverse-fades out (100px ramp-out).
+  Background stays subtly alive (ambient zoom) during the two ramp bands and
+  locks fully still only during the 250px hold.
 Scroll 1250px → 2050px: Video clip 2 plays (check-in flythrough)
-Scroll 2050px → 2500px: Video paused, HUD 2 flows in
+Scroll 2050px → 2500px: HUD 2 reveals the same way
 Scroll 2500px → 3300px: Video clip 3 plays (security flythrough)
-Scroll 3300px → 3750px: Video paused, HUD 3 flows in
+Scroll 3300px → 3750px: HUD 3 reveals the same way
 Scroll 3750px → 4550px: Video clip 4 plays (boarding flythrough)
-Scroll 4550px → 5000px: Video paused, HUD 4 flows in
+Scroll 4550px → 5000px: HUD 4 reveals the same way
 Scroll 5000px: Journey Complete screen (static image + summary card)
 ```
 
+Hovering any hotspot dot at any point during a checkpoint's HUD window reveals a small glass card with a title and 1–2 line description (hover-only, no keyboard/touch path — accepted tradeoff).
+
 ---
 
-## 5. Design Tokens
+## 5. Design Tokens (current, post-redesign)
 
 ```css
 --color-bg-primary:      #0A1628
---color-bg-card:         rgba(10, 22, 40, 0.85)
---color-bg-card-light:   rgba(255, 255, 255, 0.95)
---color-accent-gold:     #F5A623
+--color-bg-card:         rgba(8, 14, 24, 0.65)
+--color-bg-card-light:   rgba(255, 255, 255, 0.95)  /* Journey Complete only */
+--color-accent-gold:     #FFC531
 --color-accent-blue:     #3B82F6
 --color-text-primary:    #FFFFFF
 --color-text-dark:       #1A1A2E
---color-success:         #22C55E
---font-primary:          'Inter', sans-serif
---font-display:          'Outfit', sans-serif
---radius-card:           16px
---glass-blur:            12px
+--color-text-body:       rgba(255, 255, 255, 0.75)
+--color-text-tip:        rgba(255, 255, 255, 0.72)
+--color-border-glass:    rgba(255, 255, 255, 0.12)
+--color-ink-on-gold:     #141A26
+--font-primary:          'Space Grotesk', sans-serif
+--font-display:          'Space Grotesk', sans-serif
+--font-mono:             'Space Mono', monospace
+--radius-card:           12px
+--radius-chip:           8px
+--radius-tag:            6px
+--glass-blur:            28px (+ saturate(130%))
 ```
+
+Glass recipe applied uniformly to every HUD panel: `background: var(--color-bg-card); backdrop-filter: blur(28px) saturate(130%); border: 1px solid var(--color-border-glass);`
+
+> Superseded the original MVP tokens (Inter/Outfit fonts, `#F5A623` gold, 16px radius, 12px blur, solid-white info card) — see the "Wayfinding Mono" handoff below for the full rationale.
 
 ---
 
 ## 6. References
 
-- [Design Spec](./docs/specs/2026-07-15-calm-wings-design.md) — full technical specification
-- [Implementation Plan](./docs/plans/2026-07-15-calm-wings-implementation.md) — 7-task build plan
+- [Design Spec](./docs/specs/2026-07-15-calm-wings-design.md) — original technical specification (MVP build)
+- [Implementation Plan](./docs/plans/2026-07-15-calm-wings-implementation.md) — original 7-task build plan (MVP build)
 - [Google Flow Asset Guide](./docs/guides/google-flow-asset-generation.md) — how to generate assets
+- [HUD Redesign Handoff](./Airport%20checkpoint%20design%20variants/design_handoff_hud_wayfinding_mono/) — "Wayfinding Mono" visual redesign + Part 2 interactivity plan and task tracker
 - [Timeline](./timeline.md) — living changelog and open items
 - [User Journey](./user%20journey.md) — 24-stage airport journey map (reference for checkpoint content)
 - [Reference Images](./ref%20image/) — 17 mockups showing visual style targets
@@ -113,13 +132,16 @@ Scroll 5000px: Journey Complete screen (static image + summary card)
 **In scope (MVP — COMPLETE):**
 - ✅ 4 checkpoint flythrough videos (Google Flow / Veo 3.1, 8s each)
 - ✅ Canvas scroll-scrub engine (spritesheet → drawImage, 64 frames)
-- ✅ HUD overlay with flow-in/out animations (cosmetic, no interaction)
+- ✅ HUD overlay, "Wayfinding Mono" visual redesign
+- ✅ Scroll-linked HUD reveal (replaces the original timed CSS transition)
+- ✅ Hover-only hotspot info cards (title + description)
 - ✅ Journey complete screen (static image + card)
 - ✅ Clean repo + README with pipeline diagram
 - ✅ Desktop-only, production build passes
 
 **Out of scope (MVP):**
-- ❌ User interaction / clicking / task completion
+- ❌ User interaction beyond hover / clicking / task completion
+- ❌ Keyboard or touch path for hotspot cards (hover-only, accepted tradeoff)
 - ❌ Scroll locks or blocking
 - ❌ Remotion / CSS 2.5D parallax / HyperFrames
 - ❌ Multiple airports / dynamic routing
