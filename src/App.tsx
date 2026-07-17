@@ -8,8 +8,8 @@ import JourneyComplete from './components/JourneyComplete';
 const TOTAL_SCROLL = 5000;
 
 export default function App() {
-  const { scrollY, frameIndex } = useScrollFrame();
-  const { activeCheckpoint, hudPhase } = useCheckpointPhase(scrollY);
+  const { scrollY, frameIndex, ambientScale } = useScrollFrame();
+  const { activeCheckpoint, hudPhase, revealProgress } = useCheckpointPhase(scrollY);
 
   const clampedCheckpoint = Math.min(activeCheckpoint, checkpoints.length - 1);
   const currentCheckpoint = checkpoints[clampedCheckpoint];
@@ -17,12 +17,13 @@ export default function App() {
 
   return (
     <>
-      <ScrollCanvas frameIndex={frameIndex} />
+      <ScrollCanvas frameIndex={frameIndex} ambientScale={ambientScale} />
       <HUDOverlay
         checkpoint={currentCheckpoint}
         phase={hudPhase}
         activeCheckpoint={clampedCheckpoint}
-        totalCheckpoints={checkpoints.length}
+        checkpoints={checkpoints}
+        revealProgress={revealProgress}
       />
       <JourneyComplete visible={isJourneyComplete} />
     </>

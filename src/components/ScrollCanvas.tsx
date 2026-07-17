@@ -3,13 +3,14 @@ import '../styles/canvas.css';
 
 interface ScrollCanvasProps {
   frameIndex: number;
+  ambientScale: number;
 }
 
 const FRAME_W = 512;
 const FRAME_H = 288;
 const GRID_COLS = 8;
 
-export default function ScrollCanvas({ frameIndex }: ScrollCanvasProps) {
+export default function ScrollCanvas({ frameIndex, ambientScale }: ScrollCanvasProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const imageRef = useRef<HTMLImageElement | null>(null);
   const lastFrameRef = useRef<number>(-1);
@@ -93,7 +94,7 @@ export default function ScrollCanvas({ frameIndex }: ScrollCanvasProps) {
 
   return (
     <>
-      <div className="canvas-container">
+      <div className="canvas-container" style={{ transform: `scale(${ambientScale})` }}>
         <canvas ref={canvasRef} />
       </div>
       <div className="scroll-spacer" />

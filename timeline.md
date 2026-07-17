@@ -21,6 +21,20 @@
 
 ## Timeline
 
+### 2026-07-16
+
+> Timestamps below are approximate (logged during/after the work, not from precise session logging) — correct them if you have the real times.
+
+`[2026-07-16 ~12:00] [ORCHESTRATOR] [MINOR]` — Phase 7 complete: hover-only hotspot info cards. Added `detail: { title, body }` to `HotspotConfig`, drafted and user-approved copy for all 9 hotspots (plan doc said 11; actual config has 9), wired `.hotspot__card` in `hud.css` (150ms scale+fade, pure CSS `:hover`, no sibling dimming, fixed offset below the label).
+
+`[2026-07-16 ~11:30] [ORCHESTRATOR] [MINOR]` — User feedback after testing Phase 6: background froze for the entire breathing-room window even while the HUD was still fading in/out, reading as two disconnected acts ("bg halts → HUD pops on a corpse → HUD leaves while bg still dead"). Narrowed the hard freeze to just the hold band (breathingProgress 100–350px); added a subtle ambient zoom (`ambientScale`, driven by a scroll accumulator that only advances during the two 100px ramp bands) in `useScrollFrame.ts`, wired through `App.tsx` → `ScrollCanvas.tsx` as a CSS transform, so the background stays visibly alive during the transitions and locks solid only during the hold.
+
+`[2026-07-16 ~10:45] [ORCHESTRATOR] [MAJOR]` — Phase 6 complete: sticky scroll-linked HUD entrance. Replaced the timed 600ms CSS transition with a continuous `revealProgress` (0→1) derived from breathing-room scroll offset in `useCheckpointPhase.ts` — 100px ramp-in / 250px hold / 100px ramp-out (widened from an initial 50/350/50 split per user request for a more gradual reveal). `HUDOverlay.tsx` computes per-element staggered reveal values and drives them via a `--reveal` CSS custom property in `hud.css`. Supersedes the Phase 4 `transition-delay` stagger entirely (`.hud-enter`/`.hud-enter-active`/`.hud-exit` classes removed).
+
+`[2026-07-16 ~10:00] [ORCHESTRATOR] [DECISION]` — Kicked off Part 2 (Interactive & UX layer) of the HUD redesign. Verified Part 1 "Wayfinding Mono" redesign (Phases 0–5) against actual `src/` code before starting — confirmed fully implemented (fonts, tokens, three-state progress chips, glass recipe, entrance stagger all matched the handoff spec in `design_handoff_hud_wayfinding_mono/`). Exact date/session the Part 1 redesign itself was built is not logged here — it predates this session and was already marked complete in `TASKS.md` when this session began.
+
+`[2026-07-16 ~09:00] [MAJOR]` — HUD "Wayfinding Mono" visual redesign (Phases 0–5 of `design_handoff_hud_wayfinding_mono/IMPLEMENTATION_PLAN.md`) completed at some point before this entry: Space Grotesk/Space Mono fonts replace Inter/Outfit, dark-glass tokens replace the solid-white info card, three-state progress chips (done/active/upcoming) replace the anonymous dot system, "TIP" mono tag replaces the emoji, per-element entrance stagger added. Logged retroactively during Part 2 verification — no original timeline entry exists for this work.
+
 ### 2026-07-15
 
 `[2026-07-15 19:15] [ORCHESTRATOR] [MINOR]` — Fixed scroll bug: `height: 100%` on body was preventing page from scrolling. Changed to `min-height: 100%`. Dev server now shows full scroll experience.
@@ -69,6 +83,9 @@
 | 10 | CSS transitions tuning + responsive | Orchestrator | ✅ Done |
 | 11 | README with pipeline diagram | Orchestrator | ✅ Done |
 | 12 | Deploy to Vercel | Emo | ⬜ Pending |
+| 13 | HUD "Wayfinding Mono" visual redesign (Phases 0–5) | Orchestrator | ✅ Done |
+| 14 | HUD Part 2 — scroll-linked reveal, hover hotspot cards (Phases 6–7) | Orchestrator | ✅ Done |
+| 15 | HUD Part 2 — ambient dot float, scroll rail, scroll-snap, reduced-motion, intro card (Phases 8–12) | Orchestrator | ⬜ Pending |
 
 ---
 
@@ -85,3 +102,7 @@
 | 2026-07-15 | No Remotion, no CSS 2.5D, no HyperFrames | Wrong tools for scroll-scrubbed video |
 | 2026-07-15 | Orchestrated via Hermes agents, Emo picks all models/prompts | Creative direction human, execution automated |
 | 2026-07-15 | Higgsfield API (Seedance/Kling) as post-MVP upgrade | Get shipping by Friday, upgrade quality later |
+| 2026-07-16 | HUD redesign: "Wayfinding Mono" direction — dark glass, mono micro-labels, gold reserved for active step only | Signage-inspired, tightens visual hierarchy vs. original MVP HUD |
+| 2026-07-16 | Scroll-linked HUD reveal (100px ramp-in / 250px hold / 100px ramp-out) replaces timed CSS transition | Fixes "video freezes → pause → HUD pops" disconnect; ties HUD motion directly to scroll |
+| 2026-07-16 | Background locks fully still only during the hold band; ambient zoom during the two ramp bands | User feedback: hard freeze for the whole breathing room read as two disconnected acts |
+| 2026-07-16 | Hotspot cards are hover-only, no keyboard/touch path | Explicit accepted tradeoff — simplicity over full accessibility for this interaction |
