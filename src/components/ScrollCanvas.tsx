@@ -15,7 +15,27 @@ export default function ScrollCanvas({ frameIndex, ambientScale }: ScrollCanvasP
   const imageRef = useRef<HTMLImageElement | null>(null);
   const lastFrameRef = useRef<number>(-1);
 
+  const updateCanvasSize = () => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    const dpr = window.devicePixelRatio || 1;
+    const displayW = window.innerWidth;
+    const displayH = window.innerHeight;
+
+    canvas.width = displayW * dpr;
+    canvas.height = displayH * dpr;
+    canvas.style.width = `${displayW}px`;
+    canvas.style.height = `${displayH}px`;
+
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  };
+
   useEffect(() => {
+    updateCanvasSize();
     const img = new Image();
     img.src = new URL('../assets/spritesheet.jpg', import.meta.url).href;
     img.onload = () => {
@@ -43,16 +63,8 @@ export default function ScrollCanvas({ frameIndex, ambientScale }: ScrollCanvasP
     const col = idx % GRID_COLS;
     const row = Math.floor(idx / GRID_COLS);
 
-    const dpr = window.devicePixelRatio || 1;
     const displayW = window.innerWidth;
     const displayH = window.innerHeight;
-
-    canvas.width = displayW * dpr;
-    canvas.height = displayH * dpr;
-    canvas.style.width = `${displayW}px`;
-    canvas.style.height = `${displayH}px`;
-
-    ctx.scale(dpr, dpr);
 
     ctx.fillStyle = '#0A1628';
     ctx.fillRect(0, 0, displayW, displayH);
@@ -82,6 +94,7 @@ export default function ScrollCanvas({ frameIndex, ambientScale }: ScrollCanvasP
 
   useEffect(() => {
     const handleResize = () => {
+      updateCanvasSize();
       if (imageRef.current) {
         lastFrameRef.current = -1;
         drawFrame(frameIndex);
